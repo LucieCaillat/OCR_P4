@@ -527,3 +527,10 @@ footer {
   }
 }
 
+/*Error Message*/
+.error-message{
+  display: none;
+  font-size: 10px;
+  color: #FF4E60;
+ padding: 5.49px 0 0 0;
+}
