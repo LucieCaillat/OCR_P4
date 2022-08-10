@@ -10,7 +10,14 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
+const modalBody = document.querySelector(".modal-body");
+const form = document.querySelector(".modal-body form");
+console.log(modalBody , form)
 const formData = document.querySelectorAll(".formData");
+const closeModalBtn = document.querySelector(".close");
+const first = document.getElementById("first");
+const last = document.getElementById("last");
+const email = document.getElementById("email");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -21,7 +28,7 @@ function launchModal() {
 };
 
 //close modal
-const closeModalBtn = document.querySelector(".close");
+
 
 function closeModal() {
   modalbg.style.display = "none";
@@ -30,13 +37,10 @@ function closeModal() {
 closeModalBtn.addEventListener("click", closeModal);
 
 //error message
-const first = document.getElementById("first");
-const last = document.getElementById("last");
-const email = document.getElementById("email");
 
-function textErrorMessage(event, regex, nbr) {  
-  const inputTarget = document.querySelectorAll(".formData input")[nbr];
-  const errorMessage = document.querySelectorAll(".error-message")[nbr];  
+function textErrorMessage(event, regex, index) {  
+  const inputTarget = document.querySelectorAll(".formData input")[index];
+  const errorMessage = document.querySelectorAll(".error-message")[index];  
     if (regex.test(event.target.value)){
       inputTarget.style.border = "none";
     errorMessage.style.display = "none";
@@ -46,20 +50,25 @@ function textErrorMessage(event, regex, nbr) {
   }
 };
 
-first.addEventListener("change", function errorMessage (event){
-  textErrorMessage(event, /\w{2,}/, 0);
+const regexAtLeastTwoLetters = /\w{2,}/;
+const regexEmailFormat = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+first.addEventListener("input", function errorMessage(event) {
+  textErrorMessage(event, regexAtLeastTwoLetters, 0);
 });
 
-last.addEventListener("change", function errorMessage (event){
-  textErrorMessage(event, /\w{2,}/, 1);
+last.addEventListener("input", function errorMessage(event) {
+  textErrorMessage(event, regexAtLeastTwoLetters, 1);
 });
 
-email.addEventListener("change", function errorMessage (event){
-  textErrorMessage(event, /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, 2);
+email.addEventListener("input", function errorMessage(event) {
+  textErrorMessage(event, regexEmailFormat, 2);
 });
 
+//sending confirmation
 
-/*const errorMessage = document.createElement("p");  
-  document.querySelector(".formData").appendChild(errorMessage);
-  errorMessage.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-  errorMessage.style.display = "none";*/
+form.addEventListener("submit", function confirmation(event) {
+event.preventDefault();
+form.style.opacity = "0";
+});
+
