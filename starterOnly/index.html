@@ -102,10 +102,12 @@
                   id="birthdate"
                   name="birthdate"
                 /><br/>
+                <p class="error-message">Veuillez entrer une date.</p>
               </div>
               <div class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" value="0"/>
+                <p class="error-message">Veuillez entrer un chiffre de 0 à 99.</p>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div class="formData">
@@ -184,13 +186,15 @@
                   type="checkbox"
                   id="checkbox1"
                   checked
+                  required
                 />
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
-                <input class="checkbox-input" type="checkbox" id="checkbox2" required/>
+                <p class="error-message">Vous devez acceptez les termes et conditions.</p>
+                <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
                   Je Je souhaite être prévenu des prochains évènements.
