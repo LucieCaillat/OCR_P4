@@ -72,6 +72,7 @@ quantity.addEventListener("input", function errorMessage(event) {
   textErrorMessage(event, regexNumberOnly , 4);
 });
 
+    //error message for terms of use
 checkboxTermsOfUse.addEventListener("input", function errorMessage(){
   const errorMessage = document.querySelectorAll(".error-message")[5];
   if (!checkboxTermsOfUse.checked){   
