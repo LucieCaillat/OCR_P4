@@ -101,12 +101,13 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  required
                 /><br/>
-                <p class="error-message">Veuillez entrer une date.</p>
+                <p class="error-message">Veuillez entrer une date valide.</p>
               </div>
               <div class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" value="0"/>
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required/>
                 <p class="error-message">Veuillez entrer un chiffre de 0 à 99.</p>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
@@ -129,7 +130,6 @@
                   id="location2"
                   name="location"
                   value="San Francisco"
-                  checked
                 />
                 <label class="checkbox-label" for="location2">
                   <span class="checkbox-icon"></span>
@@ -180,6 +180,7 @@
                   Portland
                 </label>
               </div>
+              <p class="error-message ">Vous devez choisir une ville.</p>
               <div class="formData">
                 <input
                   class="checkbox-input"
